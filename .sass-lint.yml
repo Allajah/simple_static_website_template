@@ -1,0 +1,6 @@
+options:
+  merge-default-rules: true
+files:
+  ignore:
+    - 'node_modules/**/*.*'
+
