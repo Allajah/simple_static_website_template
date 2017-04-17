@@ -5,7 +5,8 @@
   "scripts": {
     "build": "./node_modules/.bin/rimraf dist && ./node_modules/.bin/webpack",
     "start": "./node_modules/.bin/webpack-dev-server -d --colors --inline --hot --port 4000 --host 0.0.0.0",
-    "test": "echo \"no test\""
+    "test": "echo \"no test\"",
+    "lint": "sass-lint -v -q && pug-lint app/**/*.pug"
   },
   "keywords": [],
   "author": "Allajah",
