@@ -14,12 +14,7 @@ let plugins = [
         filename: `index.html`,
         template: `app/templates/index.pug`,
     }),
-    new CopyWebpackPlugin([{
-        from: __dirname + `/app/img`,
-        to: __dirname + `/dist/img`
-    }]),
-];
-
+]; 
 export default {
     entry: {
         'main': './app/scripts/main.js',
@@ -52,11 +47,11 @@ export default {
                 use: ['css-loader', 'sass-loader']
             })
         }, {
-            test: /\.(svg|woff|woff2|ttf|eot)(\?v=\d+\.\d+\.\d+)*$/,
+            test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
             use: {
                 loader: 'file-loader',
                 query: {
-                    name: '/fonts/[name].[ext]'
+                    name: 'assets/[hash].[ext]'
                 }
             }
         }]
