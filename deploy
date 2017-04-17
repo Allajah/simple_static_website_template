@@ -2,12 +2,16 @@
 
 currentBranch=`git branch | grep \* | cut -d ' ' -f2`
 head=`git rev-parse HEAD`
-
+git stash
 git checkout -B gh-pages
 git merge $currentBranch
 yarn build
 git add -f dist
 git commit -m $head
-git subtree push --prefix dist/ origin gh-pages
-
-git chckout $currentBranch
+git push origin `git subtree split --prefix dist master`:gh-pages --force
+if [ -z $? ] 
+then
+   echo -e "\xe2\x9c\xa8 Success to deploy"
+fi
+git checkout $currentBranch
+git stash pop
