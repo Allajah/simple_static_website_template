@@ -12,7 +12,6 @@
   "author": "Allajah",
   "license": "MIT",
   "devDependencies": {
-    "babel": "^6.23.0",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.4.0",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -25,7 +24,8 @@
     "file-loader": "^0.10.1",
     "html-webpack-plugin": "^2.28.0",
     "node-sass": "^4.5.0",
-    "normalize.css": "^5.0.0",
+    "normalize.css": "^6.0.0",
+    "pug": "^2.0.0-beta.12",
     "pug-lint": "^2.4.0",
     "pug-loader": "^2.3.0",
     "sass-lint": "^1.10.2",
