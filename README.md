@@ -1,3 +1,5 @@
+[![bitHound Dev Dependencies](https://www.bithound.io/github/Allajah/simple_static_website_template/badges/devDependencies.svg)](https://www.bithound.io/github/Allajah/simple_static_website_template/master/dependencies/npm)
+
 # simple_static_website_template
 Simple Static Website Templates with pug.js, Sass, babel and Webpack
 
