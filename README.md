@@ -38,3 +38,7 @@ let plugins = [
 img(src=require('./path/to/image.png'))
 ```
 See details: https://github.com/pugjs/pug-loader
+
+### Deploy to Github Pages
+Run `deploy` script. It will build and push files in dist directory to gh-pages branch.
+Note that this script will do forced push to gh-pages directory.
