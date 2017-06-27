@@ -14,7 +14,7 @@ let plugins = [
         filename: `index.html`,
         template: `app/templates/index.pug`,
     }),
-]; 
+];
 export default {
     entry: {
         'main': './app/scripts/main.js',
@@ -44,7 +44,7 @@ export default {
             test: /\.scss$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
-                use: ['css-loader', 'sass-loader']
+                use: ['css-loader?modules', 'sass-loader', 'postcss-loader']
             })
         }, {
             test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
@@ -64,4 +64,3 @@ export default {
         contentBase: 'dist'
     }
 }
-
