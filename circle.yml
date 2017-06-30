@@ -6,6 +6,13 @@ environment:
 dependencies:
   pre:
     - npm i -g npm
+test:
+  override:
+    - npm run build
+    - npm run start:
+        background: true
+    - sleep 10
+    - npm run test
 deployment:
   circleci:
     branch: circleci
