@@ -4,6 +4,50 @@ jobs:
     working_directory: ~/simple_static_website_template
     docker:
       - image: circleci/node:7.10.0
+    branches:
+      only:
+        - master
+        - circleci2.0
     steps:
       - checkout
-      - run: echo "Hello, World!"
+      - run:
+          name: update-npm
+          command: sudo npm install -g npm
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: test
+          command: npm test
+      - run:
+          name: build
+          command: npm build
+  deploy_stg:
+    steps:
+      - run: 
+          command: echo "deploy to stg"
+  deploy_prd:
+    steps:
+      - run:
+          command: echo "deploy to prd"
+    
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy_stg:
+          requires:
+            - build
+          filters:
+            branches:
+              only: 
+                - master
+                - circleci2.0
+      - deploy_prd:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+
