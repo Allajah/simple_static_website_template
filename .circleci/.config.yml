@@ -1,0 +1,9 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/simple_static_website_template
+    docker:
+      - image: circleci/node:7.10.0
+    steps:
+      - checkout
+      - run: echo "Hello, World!"
