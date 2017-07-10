@@ -14,7 +14,7 @@ jobs:
           command: npm test
       - run:
           name: build
-          command: npm run build
+          command: npm run build && ls -a
       - persist_to_workspace:
           root: dist
   deploy_stg:
