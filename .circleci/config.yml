@@ -16,7 +16,8 @@ jobs:
           name: build
           command: npm run build && ls -a
       - persist_to_workspace:
-          root: dist
+          root: .
+          paths: dist
   deploy_stg:
     working_directory: ~/simple_static_website_template
     docker:
