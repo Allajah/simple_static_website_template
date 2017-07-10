@@ -17,14 +17,13 @@ jobs:
           command: npm run build && ls -a
       - persist_to_workspace:
           root: /home/circleci/simple_static_website_template/
-          paths: dist
   deploy_stg:
     working_directory: ~/simple_static_website_template
     docker:
       - image: circleci/node:7.10.0
     steps:
       - attach_workspace:
-          at: dist
+          at: /home/circleci/simple_static_website_template/
       - run: 
           command: echo "deploy to stg"
       - run:
