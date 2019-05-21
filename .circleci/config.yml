@@ -1,0 +1,58 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/simple_static_website_template
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: test
+          command: npm test
+      - run:
+          name: build
+          command: npm run build && ls -a
+      - persist_to_workspace:
+          root: /home/circleci/simple_static_website_template/
+  deploy_stg:
+    working_directory: ~/simple_static_website_template
+    docker:
+      - image: circleci/node:7.10.0
+    steps:
+      - attach_workspace:
+          at: /home/circleci/simple_static_website_template/
+      - run: 
+          command: echo "deploy to stg"
+      - run:
+          command: echo $CIRCLE_TAG
+  deploy_prd:
+    working_directory: ~/simple_static_website_template
+    docker:
+      - image: circleci/node:7.10.0
+    steps:
+      - run:
+          command: echo "deploy to prd"
+    
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy_stg:
+          requires:
+            - build
+          filters:
+            branches:
+              only: 
+                - master
+                - circleci2.0
+      - deploy_prd:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+

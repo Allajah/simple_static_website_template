@@ -1,6 +1,6 @@
 {
   "name": "simple_static_website_template",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "scripts": {
     "build": "rm -rf dist && webpack",
